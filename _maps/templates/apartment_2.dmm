@@ -66,9 +66,7 @@
 /turf/open/floor/plating/airless,
 /area/hilbertshotel)
 "am" = (
-/obj/machinery/vending/kink{
-	shut_up = 1
-	},
+/obj/machinery/vending/kink,
 /turf/open/indestructible/hotelwood,
 /area/hilbertshotel)
 "an" = (
@@ -355,9 +353,7 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/hilbertshotel)
 "bq" = (
-/obj/machinery/vending/boozeomat{
-	shut_up = 1
-	},
+/obj/machinery/vending/boozeomat,
 /turf/open/floor/plasteel/cafeteria,
 /area/hilbertshotel)
 "bs" = (
@@ -438,9 +434,7 @@
 /turf/open/floor/carpet,
 /area/hilbertshotel)
 "dC" = (
-/obj/machinery/vending/games{
-	shut_up = 1
-	},
+/obj/machinery/vending/games,
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood/wood_tiled,
 /area/hilbertshotel)

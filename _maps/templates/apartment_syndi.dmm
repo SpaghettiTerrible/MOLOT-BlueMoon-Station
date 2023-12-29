@@ -75,9 +75,7 @@
 /turf/open/floor/carpet/red,
 /area/hilbertshotel)
 "dI" = (
-/obj/machinery/vending/kink{
-	shut_up = 1
-	},
+/obj/machinery/vending/kink,
 /turf/open/floor/wood/wood_parquet,
 /area/hilbertshotel)
 "eK" = (
@@ -297,9 +295,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/hilbertshotel)
 "oi" = (
-/obj/machinery/vending/boozeomat{
-	shut_up = 1
-	},
+/obj/machinery/vending/boozeomat,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/hilbertshotel)
 "op" = (
@@ -537,9 +533,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/hilbertshotel)
 "Ao" = (
-/obj/machinery/vending/kink{
-	shut_up = 1
-	},
+/obj/machinery/vending/kink,
 /turf/open/floor/light/red,
 /area/hilbertshotel)
 "AT" = (
