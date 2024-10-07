@@ -9,7 +9,7 @@
 	blacklisted = 1
 	ignored_by = list(/mob/living/simple_animal/hostile/faithless)
 	meat = /obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/shadow
-	species_traits = list(NOBLOOD,NOEYES,HAS_FLESH,HAS_BONE)
+	species_traits = list(NOBLOOD,NOEYES,HAS_FLESH,HAS_BONE,HAIR)
 	inherent_traits = list(TRAIT_RADIMMUNE,TRAIT_VIRUSIMMUNE,TRAIT_NOBREATH)
 
 	dangerous_existence = 1
@@ -40,7 +40,7 @@
 	brutemod = 0.75
 	blacklisted = TRUE
 	no_equip = list(ITEM_SLOT_MASK, ITEM_SLOT_OCLOTHING, ITEM_SLOT_GLOVES, ITEM_SLOT_FEET, ITEM_SLOT_ICLOTHING, ITEM_SLOT_SUITSTORE)
-	species_traits = list(NOBLOOD,NO_UNDERWEAR,NO_DNA_COPY,NOTRANSSTING,NOEYES,NOGENITALS,NOAROUSAL)
+	species_traits = list(NOBLOOD,NO_UNDERWEAR,NO_DNA_COPY,NOTRANSSTING,NOEYES,NOGENITALS,NOAROUSAL,HAIR)
 	inherent_traits = list(TRAIT_RESISTCOLD,TRAIT_NOBREATH,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_CHUNKYFINGERS,TRAIT_RADIMMUNE,TRAIT_VIRUSIMMUNE,TRAIT_PIERCEIMMUNE,TRAIT_NODISMEMBER,TRAIT_NOHUNGER,TRAIT_NOTHIRST)
 	mutanteyes = /obj/item/organ/eyes/night_vision/nightmare
 	mutant_organs = list(/obj/item/organ/heart/nightmare)
@@ -54,6 +54,11 @@
 	to_chat(C, "[info_text]")
 
 	C.fully_replace_character_name("[pick(GLOB.nightmare_names)]")
+
+	var/mob/living/carbon/human/H = C
+	H.hair_color = "333333"
+	H.facial_hair_color = "333333"
+	H.update_hair()
 
 /datum/species/shadow/nightmare/bullet_act(obj/item/projectile/P, mob/living/carbon/human/H)
 	var/turf/T = H.loc
@@ -99,6 +104,7 @@
 	var/respawn_progress = 0
 	var/obj/item/light_eater/blade
 	decay_factor = 0
+	actions_types = list(/datum/action/item_action/organ_action/use)
 
 /obj/item/organ/heart/nightmare/ComponentInitialize()
 	. = ..()
@@ -119,9 +125,6 @@
 
 /obj/item/organ/heart/nightmare/Insert(mob/living/carbon/M, special = 0, drop_if_replaced = TRUE)
 	..()
-	if(special != HEART_SPECIAL_SHADOWIFY)
-		blade = new/obj/item/light_eater
-		M.put_in_hands(blade)
 
 /obj/item/organ/heart/nightmare/Remove(special = FALSE)
 	respawn_progress = 0
@@ -154,6 +157,15 @@
 		owner.visible_message("<span class='warning'>[owner] staggers to [owner.ru_ego()] feet!</span>")
 		playsound(owner, 'sound/hallucinations/far_noise.ogg', 50, 1)
 		respawn_progress = 0
+
+/obj/item/organ/heart/nightmare/ui_action_click(mob/living/carbon/M, action)
+	..()
+	blade = new/obj/item/light_eater
+	if (locate(/obj/item/light_eater) in M.held_items)
+		for(var/obj/item/light_eater/I in M.held_items)
+			qdel(I)
+	else
+		M.put_in_hands(blade)
 
 //Weapon
 
