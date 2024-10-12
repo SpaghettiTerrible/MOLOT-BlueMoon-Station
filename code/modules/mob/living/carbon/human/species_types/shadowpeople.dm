@@ -59,6 +59,7 @@
 	H.hair_color = "333333"
 	H.facial_hair_color = "333333"
 	H.update_hair()
+	H.grad_style = NONE
 // BLUEMOON ADD END
 /datum/species/shadow/nightmare/bullet_act(obj/item/projectile/P, mob/living/carbon/human/H)
 	var/turf/T = H.loc
