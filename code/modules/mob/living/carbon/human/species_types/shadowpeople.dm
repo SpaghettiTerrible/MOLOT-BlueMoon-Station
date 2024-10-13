@@ -252,8 +252,8 @@
 			QDEL_NULL(weapon.alight)
 			visible_message("<span class='danger'>[light] on [O] flickers out and disintegrates!</span>")
 	else
-		visible_message("<span class='danger'>[O] is disintegrated by [src]!</span>")
-		O.burn()
+		visible_message("<span class='danger'>[O] flickers out [src]!</span>")
+		O.set_light(0)
 	playsound(src, 'sound/items/welder.ogg', 50, 1)
 
 #undef HEART_SPECIAL_SHADOWIFY
