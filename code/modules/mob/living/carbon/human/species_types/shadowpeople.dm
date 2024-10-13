@@ -252,8 +252,8 @@
 			QDEL_NULL(weapon.alight)
 			visible_message("<span class='danger'>[light] on [O] flickers out and disintegrates!</span>")
 	else
-		visible_message("<span class='danger'>[O] flickers out!</span>")
-		O.set_light(0)
+		visible_message("<span class='danger'>[O] flickers out!</span>") // BLUEMOON CHANGE - [O] is disintegrated by [src]!
+		O.set_light(0) // BLUEMOON CHANGE - O.burn()
 	playsound(src, 'sound/items/welder.ogg', 50, 1)
 
 #undef HEART_SPECIAL_SHADOWIFY
